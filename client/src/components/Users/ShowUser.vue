@@ -5,6 +5,11 @@
         <p>ชื่อ-นามสกุล : {{ user.name }} - {{ user.lastname }}</p>
         <p>email : {{ user.email }}</p>
         <p>password : {{ user.password}}</p>
+
+    <p>
+      <button v-on:click="navigateTo('/user/edit/'+ user.id)">แก้ไขข้อมูล</button>
+      <button v-on:click="navigateTo('/users')">ย้อนกลับ</button>
+    </p>
 </div>
 </template>
 
@@ -25,7 +30,12 @@ import UsersService from '@/services/UsersService'
         } catch (error){
         console.log (error)
         }
-    }
+    },
+    methods: {
+    navigateTo(route) {
+      this.$router.push(route);
+    },
+  },
 }
 
 </script>
