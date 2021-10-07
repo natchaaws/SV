@@ -1,15 +1,28 @@
 <template>
 <div>
-    <h1> Show User </h1>
+
+    <b-container class="bv-example-row">
+    <b-row class="text-left">
+         <b-col></b-col>
+
+         <b-col cols="10" class="bg">
+    <h1> แสดงผู้ใช้ {{ user.id }} </h1>
+    <hr>
         <p>id : {{ user.id }}</p>
         <p>ชื่อ-นามสกุล : {{ user.name }} - {{ user.lastname }}</p>
         <p>email : {{ user.email }}</p>
         <p>password : {{ user.password}}</p>
 
     <p>
-      <button v-on:click="navigateTo('/user/edit/'+ user.id)">แก้ไขข้อมูล</button>
-      <button v-on:click="navigateTo('/users')">ย้อนกลับ</button>
+      <b-button pill variant="warning" v-on:click="navigateTo('/user/edit/'+ user.id)">แก้ไขข้อมูล</b-button>
+      <b-button pill variant="secondary" v-on:click="navigateTo('/users')">ย้อนกลับ</b-button>
     </p>
+
+    </b-col>
+      <b-col> </b-col>
+     </b-row>
+</b-container>
+  
 </div>
 </template>
 

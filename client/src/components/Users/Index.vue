@@ -1,9 +1,16 @@
 <template>
  <div>   
-    <h1> ผู้ใช้ทั้งหมด </h1> 
-    <h4>จำนวนผู้ใช้งาน {{ users.length }} คน</h4>
 
-   <p> <button v-on:click="navigateTo('/user/create/')">สร้างผู้ใช้</button></p>
+<b-container class="bv-example-row">
+    <b-row class="text-left">
+         <b-col></b-col>
+
+         <b-col cols="10" class="bg">
+    <h1> ผู้ใช้ทั้งหมด </h1> 
+    <h5>จำนวนผู้ใช้งาน {{ users.length }} คน</h5>
+    <hr>
+
+   <p> <b-button pill variant="success" v-on:click="navigateTo('/user/create/')">สร้างผู้ใช้ </b-button></p>
 
     <div v-for="user in users" v-bind:key="user.id">
        
@@ -12,14 +19,22 @@
         <p>email : {{ user.email }}</p>
         <p>password : {{ user.password}}</p>
         
-        <p><button v-on:click="navigateTo('/user/'+ user.id)">ดูข้อมูลผู้ใช้</button>
-        <button v-on:click="navigateTo('/user/edit/'+ user.id)">แก้ไขข้อมูล</button>
-        <button v-on:click="deleteUser(user)">ลบข้อมูล</button>
+        <p><b-button pill variant="primary" v-on:click="navigateTo('/user/'+ user.id)">ดูข้อมูลผู้ใช้</b-button>
+        <b-button pill variant="warning" v-on:click="navigateTo('/user/edit/'+ user.id)">แก้ไขข้อมูล</b-button>
+        <b-button pill variant="danger" v-on:click="deleteUser(user)">ลบข้อมูล</b-button>
         </p>
         
         <hr >
     </div>
   <!--  <p><button v-on:click="logout">Logout</button></p> -->
+
+
+   </b-col>
+      <b-col> </b-col>
+     </b-row>
+</b-container>
+
+
 </div>   
       
 </template>
@@ -43,7 +58,7 @@ import UsersService from '@/services/UsersService'
              
         },
         async deleteUser(user) {
-            let result = confirm("What To Delete?")
+            let result = confirm("คุณต้องการลบ ผู้ใช้นี้ใช่ไหม?")
                if(result) { 
                    try {
                     await UsersService.delete(user)

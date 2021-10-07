@@ -1,6 +1,4 @@
 <template>
-
-
     <div>
         <div class="nv-navbar"> 
         <ul class="nav">

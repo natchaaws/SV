@@ -1,8 +1,16 @@
 ﻿<template>
-  <div>
-    <h1>แสดงรีวิว {{ comment.id }} </h1>
+  <div> 
+    
+    <b-container class="bv-example-row">
+    <b-row class="text-left">
+         <b-col></b-col>
 
-    <p>id: {{ comment.id }}</p>
+         <b-col cols="10" class="bg3">
+
+
+    <h1>แสดงรีวิว {{ comment.id }} </h1><hr>
+
+    <p>รีวิว: {{ comment.id }}</p>
     <p>หัวข้อ: {{ comment.title }}</p>
 
     <p>ชื่อภาพ: {{ comment.thumbnail }}</p>
@@ -16,12 +24,20 @@
     <p>เนื้อหา: {{ comment.content }}</p>
 
     <p>
-      <button v-on:click="navigateTo('/comment/edit/' + comment.id)">
+      <b-button  pill variant="warning" v-on:click="navigateTo('/comment/edit/' + comment.id)">
         แก้ไขรีวิว
-      </button>
-      <button v-on:click="navigateTo('/comments')">ย้อนกลับ</button>
+      </b-button>
+      <b-button pill variant="secondary" v-on:click="navigateTo('/comments')">ย้อนกลับ</b-button>
     </p>
+
+  </b-col>
+      <b-col> </b-col>
+     </b-row>
+
+</b-container>
+
   </div>
+
 </template>
 
 <script>

@@ -1,29 +1,39 @@
 <template>
 
 <div>
-    <h1> แก้ไขผู้ใช้งาน {{ user.id }}</h1>
+
+<b-container class="bv-example-row">
+    <b-row class="text-left">
+         <b-col></b-col>
+
+         <b-col cols="10" class="bg">
+
+    <h1> แก้ไขผู้ใช้ {{ user.id }}</h1><hr>
     
     <form v-on:submit.prevent = "editUser">
-        <p>ชื่อ : <input type="text" v-model="user.name"></p>
-        <p>นามสกุล : <input type="text" v-model="user.lastname"></p>
+        <p>name : <input type="text" v-model="user.name"></p>
+        <p>lastname : <input type="text" v-model="user.lastname"></p>
         <p>email : <input type="text" v-model="user.email"></p>
         <p>password : <input type="text" v-model="user.password"></p>
-
-
-        <p><button type="submit">แก้ไขผู้ใช้</button>
-        <button v-on:click="navigateTo('/users')">ย้อนกลับ</button>
-        </p>
-
+        <P><b-button type="submit" pill variant="warning">แก้ไขผู้ใช้</b-button>
+        <b-button pill variant="secondary" v-on:click="navigateTo('/users')">ย้อนกลับ</b-button>
+        </P>
     </form>
 
     <hr>
 
     <div>
-        <p>ชื่อ: {{ user.name }} </p>
-        <p>นามสกุล : {{ user.lastname }}</p>
+        <p>name : {{ user.name }} </p>
+        <p>lastname : {{ user.lastname }}</p>
         <p>email : {{ user.email }}</p>
         <p>password : {{ user.password}}</p>
     </div>
+
+</b-col>
+      <b-col> </b-col>
+     </b-row>
+</b-container>
+
 </div>
 </template>
 
@@ -52,7 +62,11 @@ import UsersService from '@/services/UsersService'
             } catch (error) {
                 console.log(error)
             }
-        }
+        },
+        navigateTo(route) {
+      console.log(route);
+      this.$router.push(route);
+    },
     },
       async created () { 
           try {
@@ -62,12 +76,7 @@ import UsersService from '@/services/UsersService'
                 console.log(error)
             }
 
-},
-methods: {
-    navigateTo(route) {
-      this.$router.push(route);
-    },
-  },
+}
     }
 
 </script>

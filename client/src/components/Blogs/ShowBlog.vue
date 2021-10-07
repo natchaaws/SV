@@ -1,6 +1,15 @@
 <template>
   <div>
-    <h1>Show Blog</h1>
+
+   <b-container class="bv-example-row">
+      <b-row class="text-left">
+        <b-col></b-col>
+
+        <b-col cols="10" class="bg1">
+
+    <h1>ตรวจสอบการจอง {{ blog.id }} </h1><hr>
+
+
     <p>ลำดับ: {{ blog.id }}</p>
       <p>ชื่อ: {{ blog.firstname }}</p>
       <p>นามสกุล: {{ blog.lastname }}</p>
@@ -14,11 +23,17 @@
       <p>อื่นๆ : {{ blog.other }}</p>
 
     <p>
-      <button v-on:click="navigateTo('/blog/edit/' + blog.id)">
-        แก้ไขการจองห้องประชุม
-      </button>
-      <button v-on:click="navigateTo('/blogs')">ย้อนกลับ</button>
+      <b-button pill variant="warning" v-on:click="navigateTo('/blog/edit/' + blog.id)">
+        แก้ไขการจอง
+      </b-button>
+      <b-button pill variant="secondary" v-on:click="navigateTo('/blogs')">ย้อนกลับ</b-button>
     </p>
+
+    </b-col>
+      <b-col> </b-col>
+     </b-row>
+</b-container>
+
   </div>
 </template>
 

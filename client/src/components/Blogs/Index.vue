@@ -1,10 +1,18 @@
 <template>
   <div>
+<b-container class="bv-example-row">
+    <b-row class="text-left">
+         <b-col></b-col>
+
+         <b-col cols="10" class="bg1">
+
+
     <h1>การจองห้องประชุม</h1>
   <!--   <p><button v-on:click="logout">Logout</button></p> -->
-    <h4>จำนวนที่จอง {{ blogs.length }} </h4>
+    <h5>จำนวนที่จอง {{ blogs.length }} </h5>
 
-    <p><button v-on:click="navigateTo('/blog/create')"> จองห้องประชุม </button></p>
+    <p><b-button pill variant="success" v-on:click="navigateTo('/blog/create')"> จองห้องประชุม </b-button></p>
+<hr>
     <div v-for="blog in blogs" v-bind:key="blog.id">
       <p>ลำดับ: {{ blog.id }}</p>
       <p>ชื่อ: {{ blog.firstname }}</p>
@@ -18,13 +26,18 @@
       <p>เวลาที่สิ้นสุด: {{ blog.timee }}</p>
       <p>อื่นๆ : {{ blog.other }}</p>
       <p>
-        <button v-on:click="navigateTo('blog/'+blog.id)"> ตรวจสอบการจอง </button>
-        <button v-on:click="navigateTo('/blog/edit/' + blog.id)"> แก้ไขการจองห้องประชุม </button>
-        <button v-on:click="deleteBlog(blog)"> ยกเลิกการจองห้องประชุม</button>
+        <b-button pill variant="primary" v-on:click="navigateTo('blog/'+blog.id)"> ตรวจสอบการจอง </b-button>
+        <b-button pill variant="warning" v-on:click="navigateTo('/blog/edit/' + blog.id)"> แก้ไขการจอง </b-button>
+        <b-button pill variant="danger" v-on:click="deleteBlog(blog)"> ยกเลิกการจอง</b-button>
       </p>
       <hr>
     </div>
     
+</b-col>
+      <b-col> </b-col>
+     </b-row>
+</b-container>
+
   </div>
 </template>
 <script>

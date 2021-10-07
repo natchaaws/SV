@@ -1,23 +1,52 @@
 <template>
   <div>
-    <h1>Edit Blog</h1>
+    <b-container class="bv-example-row">
+      <b-row class="text-left">
+        <b-col></b-col>
+
+        <b-col cols="10" class="bg1">
+    <h1>แก้ไขการจองห้องประชุม {{ blog.id }} </h1><hr>
+
     <form v-on:submit.prevent="editBlog">
       <p>ชื่อ : <input type="text" v-model="blog.firstname" /></p>
        <p>นามสกุล : <input type="text" v-model="blog.lastname" /></p>
-      <p>ชื่อห้องประชุม : <input type="text" v-model="blog.nroom" /></p>
-      <p>จำนวนผู้เข้าประชุม : <input type="text" v-model="blog.pnum" /></p>
-      <p>เบอร์โทรศัพท์ : <input type="text" v-model="blog.tel" /></p>
-      <p>วันที่เริ่มต้น : <input type="text" v-model="blog.dates" /></p>
-      <p>เวลาที่เริ่มต้น: <input type="text" v-model="blog.times" /></p>
-      <p>วันที่สิ้นสุด : <input type="text" v-model="blog.datee" /></p>
-      <p>เวลาที่สิ้นสุด : <input type="text" v-model="blog.timee" /></p>
+      <p>
+        ชื่อห้องประชุม :
+        <select v-model="blog.nroom">
+          <option>   </option>
+          <option>ลั่นทม</option>
+          <option>ลีลาวดี</option>
+          <option>กุหลาบ</option>
+          <option>กล้วยไม้</option>
+          <option>อัญชัญ</option>
+          <option>จามจุรี</option>
+          <option>ชบา</option>
+          <option>ลำดวน</option>
+          <option>มะลิ</option>
+          <option>พิกุล</option>
+        </select>
+      </p>
+      <p>จำนวนผู้เข้าประชุม : <input type="number" v-model="blog.pnum" /></p>
+      <p>เบอร์โทรศัพท์ : <input type="tel" v-model="blog.tel" /></p>
+      <p>วันที่เริ่มต้น : <input type="date" v-model="blog.dates" /></p>
+      <p>เวลาที่เริ่มต้น: <input type="time" v-model="blog.times" /></p>
+      <p>วันที่สิ้นสุด : <input type="date" v-model="blog.datee" /></p>
+      <p>เวลาที่สิ้นสุด : <input type="time" v-model="blog.timee" /></p>
       <p>อื่นๆ : <input type="text" v-model="blog.other" /></p>
       <p>
-        <br>
-        <button type="submit"> บันทึกการแก้ไขข้อมูล </button>
-        <button v-on:click="navigateTo('/blogs')"> ย้อนกลับ </button>
+        
+        <b-button pill variant="warning" type="submit"> แก้ไขการจอง</b-button>
+        <b-button pill variant="secondary" v-on:click="navigateTo('/blogs')"
+          >ย้อนกลับ</b-button
+        >
       </p>
     </form>
+
+</b-col>
+        <b-col> </b-col>
+      </b-row>
+    </b-container>
+
   </div>
 </template>
 <script>

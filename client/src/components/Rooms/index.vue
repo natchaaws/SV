@@ -1,8 +1,13 @@
 ﻿<template>
   <div>
+    <b-container class="bv-example-row">
+    <b-row class="text-left">
+         <b-col></b-col>
+
+         <b-col cols="10" class="bg2">
     <h1>รายชื่อห้องประชุม</h1>
   <!--   <p><button v-on:click="logout">Logout</button></p> -->
-    <h4>จำนวนห้องประชุม {{ rooms.length }} ห้อง</h4>
+    <h5>จำนวนห้องประชุม {{ rooms.length }} ห้อง</h5> <hr>
 
     <div v-for="room in rooms" v-bind:key="room.id">
       <p>ห้องที่: {{ room.id }}</p>
@@ -11,7 +16,11 @@
       
       <hr>
     </div>
-    
+
+    </b-col>
+      <b-col> </b-col>
+     </b-row>
+</b-container>
   </div>
 </template>
 <script>

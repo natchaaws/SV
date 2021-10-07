@@ -1,75 +1,99 @@
 ﻿<template>
   <div>
-    <h1>สร้างรีวิวของคุณ</h1>
-    <form v-on:submit.prevent="createComment">
-        <!-- thumbnail-->
-      <p>หัวข้อ: <input type="text" v-model="comment.title"></p>
+    <b-container class="bv-example-row">
+      <b-row class="text-left">
+        <b-col></b-col>
 
+        <b-col cols="10" class="bg3">
+          <h1>สร้างรีวิวของคุณ</h1>
+          <hr />
 
-      <transition name="fade"> 
-        <div class="thumbnail-pic" v-if="comment.thumbnail != 'null'">
-          <img :src="BASE_URL+comment.thumbnail" alt="thumbnail">
-        </div>
-      </transition>
+          <form v-on:submit.prevent="createComment">
+            <!-- thumbnail-->
+            <p>หัวข้อ: <input type="text" v-model="comment.title" /></p>
 
-      <!-- <p><strong>Title:</strong> <input type="text" v-model="comment.title" /></p> -->
+            <transition name="fade">
+              <div class="thumbnail-pic" v-if="comment.thumbnail != 'null'">
+                <img :src="BASE_URL + comment.thumbnail" alt="thumbnail" />
+              </div>
+            </transition>
 
-      <form enctype="multipart/form-data" novalidate>
-        <div class="dropbox">
-          <input
-            type="file"
-            multiple
-            :name="uploadFieldName"
-            :disabled="isSaving"
-            @change="
-              filesChange($event.target.name, $event.target.files);
-              fileCount = $event.target.files.length;
-            "
-            accept="image/*"
-            class="input-file"
-          />
-          <!-- <p v-if="isInitial || isSuccess"/> -->
-          <p v-if="isInitial">
-            Drag your files(s) <br />
-            here to begin or click to browse
-          </p>
-          <p v-if="isSaving">Uploading {{ fileCount }} files...</p>
-          <p v-if="isSuccess">อัพโหลดรูปเรียบร้อยแล้ว!</p>
-          <p v-if="isFailed">อัพโหลดรูปไม่สำเร็จ</p>
-        </div>
+            <!-- <p><strong>Title:</strong> <input type="text" v-model="comment.title" /></p> -->
 
-        <div>
-          <ul class="pictures">
-            <li v-for="picture in pictures" v-bind:key="picture.id">
-              <img
-                style="margin-bottom: 5px"
-                :src="BASE_URL + picture.name"
-                alt="picture image"
+            <form enctype="multipart/form-data" novalidate>
+              <div class="dropbox">
+                <input
+                  type="file"
+                  multiple
+                  :name="uploadFieldName"
+                  :disabled="isSaving"
+                  @change="
+                    filesChange($event.target.name, $event.target.files);
+                    fileCount = $event.target.files.length;
+                  "
+                  accept="image/*"
+                  class="input-file"
+                />
+                <!-- <p v-if="isInitial || isSuccess"/> -->
+                <p v-if="isInitial">
+                  Drag your files(s) <br />
+                  here to begin or click to browse
+                </p>
+                <p v-if="isSaving">Uploading {{ fileCount }} files...</p>
+                <p v-if="isSuccess">อัพโหลดรูปเรียบร้อยแล้ว!</p>
+                <p v-if="isFailed">อัพโหลดรูปไม่สำเร็จ</p>
+              </div>
+
+              <div>
+                <ul class="pictures">
+                  <li v-for="picture in pictures" v-bind:key="picture.id">
+                    <img
+                      style="margin-bottom: 5px"
+                      :src="BASE_URL + picture.name"
+                      alt="picture image"
+                    />
+                    <br />
+                    <button v-on:click.prevent="delFile(picture)">
+                      ลบรูปภาพ
+                    </button>
+                    <button v-on:click.prevent="useThumbnail(picture.name)">
+                      แสดงภาพขนาดเล็ก
+                    </button>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+            </form>
+
+            <p><strong>เนื้อหา:</strong></p>
+            <p>
+              <vue-ckeditor
+                v-model.lazy="comment.content"
+                :config="config"
+                @blur="onBlur($event)"
+                @focus="onFocus($ecent)"
               />
-              <br />
-              <button v-on:click.prevent="delFile(picture)"> ลบรูปภาพ </button>
-              <button v-on:click.prevent="useThumbnail(picture.name)">แสดงภาพขนาดเล็ก</button>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-      </form>
+            </p>
 
-      <p><strong>เนื้อหา:</strong></p>
-      <p>
-        <vue-ckeditor
-          v-model.lazy="comment.content"
-          :config="config"
-          @blur="onBlur($event)"
-          @focus="onFocus($ecent)"
-        />
-      </p>
+            <p>
+            <b-button pill variant="success" type="submit">สร้างรีวิว</b-button>
+            <b-button pill variant="secondary" v-on:click="navigateTo('/blogs')">ย้อนกลับ</b-button>
+            </p>
 
-      
-      <p><button type="submit">สร้างรีวิว</button></p>
-    </form>
+          </form>
+
+
+        </b-col>
+        <b-col> </b-col>
+      </b-row>
+    </b-container>
+
+
   </div>
+
 </template>
+
+
 <script>
 import CommentService from "@/services/CommentsService";
 import VueCkeditor from "vue-ckeditor2";
@@ -101,23 +125,23 @@ export default {
         pictues: "null",
         content: "",
         category: "",
-        status: "",
+        status: ""
       },
       config: {
         /* toolbar: [
           ["Bold", "Italic", "Underline", "Strike", "Subscript", "SuperScript"],
         ], */
-        height: 300,
-      },
+        height: 300
+      }
     };
   },
   methods: {
     async createComment() {
-      this.comment.pictures = JSON.stringify(this.pictures) //update ค่าของ comments.pictrues 
+      this.comment.pictures = JSON.stringify(this.pictures); //update ค่าของ comments.pictrues
       try {
         await CommentService.post(this.comment);
         this.$router.push({
-          name: "comments",
+          name: "comments"
         });
       } catch (err) {
         console.log(err);
@@ -141,16 +165,16 @@ export default {
             "Preview",
             "Print",
             "-",
-            "Templates",
-          ],
+            "Templates"
+          ]
         },
         {
           name: "clipboard",
-          items: ["Cut", "Copy", "Paste", "PasteText", "-", "Undo", "Redo"],
+          items: ["Cut", "Copy", "Paste", "PasteText", "-", "Undo", "Redo"]
         },
         {
           name: "editing",
-          items: ["Find", "Replace", "-", "SelectAll", "-", "Scayt"],
+          items: ["Find", "Replace", "-", "SelectAll", "-", "Scayt"]
         },
         {
           name: "forms",
@@ -163,8 +187,8 @@ export default {
             "Select",
             "Button",
             "ImageButton",
-            "HiddentField",
-          ],
+            "HiddentField"
+          ]
         },
         "/",
         {
@@ -178,8 +202,8 @@ export default {
             "SuperScript",
             "-",
             "CopyFormatting",
-            "RemoveFormat",
-          ],
+            "RemoveFormat"
+          ]
         },
         {
           name: "basicstyles",
@@ -191,8 +215,8 @@ export default {
             "Superscript",
             "-",
             "CopyFormatting",
-            "RemoveFormat",
-          ],
+            "RemoveFormat"
+          ]
         },
         {
           name: "paragraph",
@@ -213,8 +237,8 @@ export default {
             "-",
             "BidiLtr",
             "BidiRtl",
-            "Language",
-          ],
+            "Language"
+          ]
         },
         { name: "Links", items: ["Link", "Unlink", "Anchor"] },
         {
@@ -228,17 +252,17 @@ export default {
             "Specialchar",
             "PageBreak",
             "Iframe",
-            "InsertPre",
-          ],
+            "InsertPre"
+          ]
         },
         "/",
         {
           name: "styles",
-          items: ["Styles", "Format", "Font", "Font", "FontSize"],
+          items: ["Styles", "Format", "Font", "Font", "FontSize"]
         },
         { name: "colors", items: ["TextColor", "BGColor"] },
         { name: "tools", items: ["Maximize", "ShowBlocks"] },
-        { name: "about", items: ["About"] },
+        { name: "about", items: ["About"] }
       ];
     },
     navigateTo(route) {
@@ -246,8 +270,8 @@ export default {
       this.$router.push(route);
     },
     wait(ms) {
-      return (x) => {
-        return new Promise((resolve) => setTimeout(() => resolve(x), ms));
+      return x => {
+        return new Promise(resolve => setTimeout(() => resolve(x), ms));
       };
     },
     reset() {
@@ -266,7 +290,7 @@ export default {
 
         // update image uploaded display
         let pictureJSON = [];
-        this.uploadedFileNames.forEach((uploadFilename) => {
+        this.uploadedFileNames.forEach(uploadFilename => {
           let found = false;
           for (let i = 0; i < this.pictures.length; i++) {
             if (this.pictures[i].name == uploadFilename) {
@@ -279,7 +303,7 @@ export default {
             this.pictureIndex++;
             let pictureJSON = {
               id: this.pictureIndex,
-              name: uploadFilename,
+              name: uploadFilename
             };
             this.pictures.push(pictureJSON);
           }
@@ -298,7 +322,7 @@ export default {
       if (!fileList.length) return;
 
       //append the files to FormData
-      Array.from(Array(fileList.length).keys()).map((x) => {
+      Array.from(Array(fileList.length).keys()).map(x => {
         formData.append(filedName, fileList[x], fileList[x].name);
         this.uploadedFileNames.push(fileList[x].name);
       });
@@ -306,38 +330,37 @@ export default {
       //save it
       this.save(formData);
     },
-    clearUploadResult: function () {
+    clearUploadResult: function() {
       setTimeout(() => this.reset(), 5000);
     },
 
-    //เรียกใช้ v-0n:cick.prevent ส่ง picture ไปลบ 
-    async delFile (material){
-      let result = confirm("Want to delete?")
+    //เรียกใช้ v-0n:cick.prevent ส่ง picture ไปลบ
+    async delFile(material) {
+      let result = confirm("Want to delete?");
       if (result) {
         let dataJSON = {
-          "filename":material.name
-        }
+          filename: material.name
+        };
 
-        await UploadService.delete(dataJSON)
+        await UploadService.delete(dataJSON);
 
-        for (var i=0; i<this.pictures.length; i++){
-          if(this.pictures[i].id === material.id) {
-            this.pictures.splice(i, 1)
-            this.materialIndex--
-            break
+        for (var i = 0; i < this.pictures.length; i++) {
+          if (this.pictures[i].id === material.id) {
+            this.pictures.splice(i, 1);
+            this.materialIndex--;
+            break;
           }
         }
       }
     },
 
     /* thumbnail */
-    useThumbnail (filename) {
-      console.log(filename)
-      this.comment.thumbnail = filename
+    useThumbnail(filename) {
+      console.log(filename);
+      this.comment.thumbnail = filename;
     }
   },
 
-  
   created() {
     this.reset();
   },
@@ -353,66 +376,63 @@ export default {
     },
     isFailed() {
       return this.currentStatus === STATUS_FAILED;
-    },
+    }
   },
   components: {
-    VueCkeditor,
-  },
+    VueCkeditor
+  }
 };
 </script>
 <style scoped>
+.dropbox {
+  outline: 2px dashed gray; /* the dash box */
+  outline-offset: -10px;
+  background: #fec3df;
+  color: dimgray;
+  padding: 10px 10px;
+  min-height: 200px; /* minimum height */
+  position: relative;
+  cursor: pointer;
+}
 
-.dropbox{
-        outline: 2px dashed gray; /* the dash box */
-        outline-offset: -10px;
-        background: #fec3df;
-        color: dimgray;
-        padding: 10px 10px;
-        min-height: 200px; /* minimum height */
-        position: relative;
-        cursor: pointer;
-    }
+.input-file {
+  opacity: 0; /* invisible but it's there! */
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  cursor: pointer;
+}
 
-    .input-file {
-        opacity: 0; /* invisible but it's there! */
-        width: 100%;
-        height: 200px;
-        position: absolute;
-        cursor: pointer;
-    }
+.dropbox:hover {
+  background: #fceebe;
+}
 
-    .dropbox:hover {
-        background: #fceebe;
-    }
+.dropbox p {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 50px 0;
+}
 
-    .dropbox p {
-        font-size: 1.2em;
-        text-align: center;
-        padding: 50px 0;
-    }
-
-    ul.pictures {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      float: left;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-    ul.pictures li {
-      float: left;
-    }
-    ul.pictures li img {
-      max-width: 180px;
-      margin-right: 20px;
-    }
-    .clearfix {
-      clear: both;
-    }
-    /* thumbnail */
-    .thumbnail-pic img{
-      width: 200px;
-    }
-
-
+ul.pictures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+ul.pictures li {
+  float: left;
+}
+ul.pictures li img {
+  max-width: 180px;
+  margin-right: 20px;
+}
+.clearfix {
+  clear: both;
+}
+/* thumbnail */
+.thumbnail-pic img {
+  width: 200px;
+}
 </style>

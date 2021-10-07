@@ -1,12 +1,25 @@
 <template>
   <div>
-    <h1>User Login</h1>
+    <b-container class="bv-example-row">
+    <b-row class="text-center">
+         <b-col></b-col>
+
+         <b-col cols="10" class="bg4">
+
+    <h1>User Login</h1><hr>
     <form v-on:submit.prevent="onLogin">
       <p>Username : <input type="text" v-model="email"></p>
       <p>Password : <input type="password" v-model="password"></p>
-      <p><button type="submit">Login</button></p>
+
+      <p><b-button variant="success" type="submit">Login</b-button></p>
       <div class="error" v-if="error">{{error}}</div>
     </form>
+
+    </b-col>
+      <b-col> </b-col>
+     </b-row>
+</b-container>
+
   </div>
 </template>
 

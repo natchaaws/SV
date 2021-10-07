@@ -1,5 +1,8 @@
 <template>
-  <div id="app"> <!-- อยากให้หน้าตาเป็นแบบไหนใส่ที่นี่-->
+  <div id="app" class style="font-family: 'Itim', cursive;"> 
+    
+      
+    <!-- อยากให้หน้าตาเป็นแบบไหนใส่ที่นี่-->
     <back-header />
     <!--<img src="./assets/logo.png">-->
     <router-view/>
@@ -38,5 +41,32 @@ export default {
 .thumbnail-pic img{
       width: 150px;
     }
+
+
+  .style{
+    font-family: 'Itim', cursive;
+  }
+
+  .bg{
+    background:LavenderBlush;
+}
+
+ .bg1{
+    background: PapayaWhip
+}
+
+.bg2{
+    background: Azure;
+}
+
+.bg3{
+    background: rgb(228, 253, 241);
+}
+
+.bg4{
+    background: #FFE4B5;
+}
+
+
 
 </style>

@@ -1,10 +1,19 @@
 <template>
   <div>
+
+    <b-container class="bv-example-row">
+    <b-row class="text-left">
+         <b-col></b-col>
+
+         <b-col cols="10" class="bg3">
+
+
     <h1>รีวิวทั้งหมด</h1>
   <!--   <p><button v-on:click="logout">Logout</button></p> -->
-    <h4>จำนวนรีวิว {{ comments.length }} รีวิว</h4>
+    <h5>จำนวนรีวิว {{ comments.length }} รีวิว</h5>
+<hr>
 
-    <p><button v-on:click="navigateTo('/comment/create')">เขียนรีวิว</button></p>
+    <p><b-button pill variant="success" v-on:click="navigateTo('/comment/create')">เขียนรีวิว</b-button></p>
     <div v-for="comment in comments" v-bind:key="comment.id">
       <p>รีวิวที่: {{ comment.id }}</p>
       <p>หัวข้อ: {{ comment.title }}</p>
@@ -18,13 +27,18 @@
    
       <p>เนื้อหา: {{ comment.content }}</p>
       <p>
-        <button v-on:click="navigateTo('comment/'+comment.id)">ดูรีวิว</button>
-        <button v-on:click="navigateTo('/comment/edit/' +comment.id)">แก้ไขรีวิว</button>
-        <button v-on:click="deleteComment(comment)"> ลบรีวิว</button>
+        <b-button pill variant="primary" v-on:click="navigateTo('comment/'+comment.id)">ดูรีวิว</b-button>
+        <b-button pill variant="warning" v-on:click="navigateTo('/comment/edit/' +comment.id)">แก้ไขรีวิว</b-button>
+        <b-button pill variant="danger" v-on:click="deleteComment(comment)"> ลบรีวิว</b-button>
       </p>
       <hr>
     </div>
-    
+
+    </b-col>
+      <b-col> </b-col>
+     </b-row>
+</b-container>
+
   </div>
 </template>
 <script>
