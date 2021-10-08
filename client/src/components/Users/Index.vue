@@ -12,19 +12,21 @@
 
    <p> <b-button pill variant="success" v-on:click="navigateTo('/user/create/')">สร้างผู้ใช้ </b-button></p>
 
-    <div v-for="user in users" v-bind:key="user.id">
+    <div class="box" v-for="user in users" v-bind:key="user.id">
        
-        <p>id : {{ user.id }}</p>
+       <!-- <p>id : {{ user.id }}</p> -->
         <p>ชื่อ-นามสกุล : {{ user.name }} - {{ user.lastname }}</p>
         <p>email : {{ user.email }}</p>
-        <p>password : {{ user.password}}</p>
-        
+      <!--   <p>password : {{ user.password}}</p> -->
+        <hr>
         <p><b-button pill variant="primary" v-on:click="navigateTo('/user/'+ user.id)">ดูข้อมูลผู้ใช้</b-button>
-        <b-button pill variant="warning" v-on:click="navigateTo('/user/edit/'+ user.id)">แก้ไขข้อมูล</b-button>
-        <b-button pill variant="danger" v-on:click="deleteUser(user)">ลบข้อมูล</b-button>
+    <!--    
+         <b-button pill variant="warning" v-on:click="navigateTo('/user/edit/'+ user.id)">แก้ไขข้อมูล</b-button> 
+        <b-button pill variant="danger" v-on:click="deleteUser(user)">ลบข้อมูล</b-button> 
+        
+    -->
         </p>
         
-        <hr >
     </div>
   <!--  <p><button v-on:click="logout">Logout</button></p> -->
 

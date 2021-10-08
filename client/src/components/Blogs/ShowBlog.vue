@@ -9,7 +9,7 @@
 
     <h1>ตรวจสอบการจอง {{ blog.id }} </h1><hr>
 
-
+<div class="box1">
     <p>ลำดับ: {{ blog.id }}</p>
       <p>ชื่อ: {{ blog.firstname }}</p>
       <p>นามสกุล: {{ blog.lastname }}</p>
@@ -21,14 +21,14 @@
       <p>วันที่สิ้นสุด: {{ blog.datee }}</p>
       <p>เวลาที่สิ้นสุด: {{ blog.timee }}</p>
       <p>อื่นๆ : {{ blog.other }}</p>
-
+<hr>
     <p>
       <b-button pill variant="warning" v-on:click="navigateTo('/blog/edit/' + blog.id)">
         แก้ไขการจอง
       </b-button>
       <b-button pill variant="secondary" v-on:click="navigateTo('/blogs')">ย้อนกลับ</b-button>
     </p>
-
+</div>
     </b-col>
       <b-col> </b-col>
      </b-row>
@@ -61,4 +61,5 @@ export default {
 };
 </script>
 <style scoped>
+
 </style>

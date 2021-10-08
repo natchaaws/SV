@@ -1,15 +1,14 @@
 <template>
     <div>
-        <div class="nv-navbar"> 
-        <ul class="nav">
-            <li><router-link :to="{name: 'rooms'}">รายละเอียดห้องประชุม</router-link></li> 
-            <li><router-link :to="{name: 'blogs'}">การจองห้องประชุม</router-link></li>
-            <li><router-link :to="{name: 'comments'}">รีวิวห้องประชุม</router-link></li>
-            <li><router-link :to="{name: 'users'}">ผู้ใช้งาน</router-link></li>
-            <li><router-link :to="{name: 'login'}">Login</router-link></li>
-            <li><a v-on:cick.prevent="logout" href="login">Logout</a></li>
-        </ul>
-        <div class="clearfix"></div>
+        <div class="sidebar"> 
+            
+            <a><router-link :to="{name: 'rooms'}"><i class="fa fa-bars" aria-hidden="true"></i> รายละเอียดห้องประชุม</router-link></a> 
+            <a><router-link :to="{name: 'blogs'}"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> การจองห้องประชุม</router-link></a>
+            <a><router-link :to="{name: 'comments'}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> รีวิวห้องประชุม</router-link></a>
+            <a><router-link :to="{name: 'users'}"><i class="fa fa-address-card-o" aria-hidden="true"></i> ผู้ใช้งาน</router-link></a>
+            <a><router-link :to="{name: 'login'}"><i class="fa fa-user-o" aria-hidden="true"></i> Login</router-link></a>
+            <a><a v-on:cick.prevent="logout" href="login"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a></a>
+        
         </div>
     </div>
 
@@ -30,43 +29,72 @@ export default {
 </script>
 
 <style scoped>
-    .nv-navbar{
-        background-color: #fc77c2;/*สีแทบ */
-        width:  100%;
-        padding: 10px 0px 10px 0px;
-    }
+    /* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 230px;
+  background-color: rgb(14, 27, 61,0.98);
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  font-size: 17px;
+  border-radius: 0px 30px 30px 0px;
 
-    .nv-navbar .nav {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        float: left;
-    }
+}
 
-    .nv-navbar .nav li {
-        float: left;
-    }
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 9px; /* ห่างจากตัวออกไป */
+  text-decoration: none;
+}
 
-    .nv-navbar .nav li a {
-        padding: 10px;
-        text-decoration: none;
-        color: #ffe297; /*สีอักษร */
-        font-weight: bold;
-    }
+/* Active/current link */
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
 
-    .nv-navbar .nav li a:hover {
-        padding: 10px;
-        text-decoration: none;
-        color: #b6ffe3; /*สีอักษรเมื่อเอาเม้าส์ไปวาง */
-    }
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #62caaf;
+  border-radius: 50px 50px 50px 50px;
+  color: white;
+}
 
-    .nv-navbar .nav li a.router-link-active {
-        background-color: #40cbea; 
-        color: white; /*สีอักษรเมื่อกดอยู๋ในหน้านี้ */
-    }
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
 
-    .clearfix {
-        clear: left;
-    }
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.sidebar a.router-link-active{
+    color: white;
+    background-color: #0090ad;
+     border-radius: 50px 50px 50px 50px;
+
+}
 
 </style>

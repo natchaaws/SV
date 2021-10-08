@@ -7,34 +7,47 @@
         <b-col cols="10" class="bg1">
     <h1>แก้ไขการจองห้องประชุม {{ blog.id }} </h1><hr>
 
-    <form v-on:submit.prevent="editBlog">
-      <p>ชื่อ : <input type="text" v-model="blog.firstname" /></p>
-       <p>นามสกุล : <input type="text" v-model="blog.lastname" /></p>
+    <form class="box1" v-on:submit.prevent="editBlog">
       <p>
-        ชื่อห้องประชุม :
-        <select v-model="blog.nroom">
-          <option>   </option>
-          <option>ลั่นทม</option>
-          <option>ลีลาวดี</option>
-          <option>กุหลาบ</option>
-          <option>กล้วยไม้</option>
-          <option>อัญชัญ</option>
-          <option>จามจุรี</option>
-          <option>ชบา</option>
-          <option>ลำดวน</option>
-          <option>มะลิ</option>
-          <option>พิกุล</option>
-        </select>
-      </p>
-      <p>จำนวนผู้เข้าประชุม : <input type="number" v-model="blog.pnum" /></p>
-      <p>เบอร์โทรศัพท์ : <input type="tel" v-model="blog.tel" /></p>
-      <p>วันที่เริ่มต้น : <input type="date" v-model="blog.dates" /></p>
-      <p>เวลาที่เริ่มต้น: <input type="time" v-model="blog.times" /></p>
-      <p>วันที่สิ้นสุด : <input type="date" v-model="blog.datee" /></p>
-      <p>เวลาที่สิ้นสุด : <input type="time" v-model="blog.timee" /></p>
-      <p>อื่นๆ : <input type="text" v-model="blog.other" /></p>
+              ชื่อ : <input type="text" v-model="blog.firstname" /> นามสกุล :
+              <input type="text" v-model="blog.lastname" />
+            </p>
+
+            <p>
+              ชื่อห้องประชุม :
+              <select required v-model="blog.nroom">
+
+                <option>ลั่นทม</option>
+                <option>ลีลาวดี</option>
+                <option>กุหลาบ</option>
+                <option>กล้วยไม้</option>
+                <option>อัญชัญ</option>
+                <option>จามจุรี</option>
+                <option>ชบา</option>
+                <option>ลำดวน</option>
+                <option>มะลิ</option>
+                <option>พิกุล</option>
+              </select>
+
+              จำนวนผู้เข้าประชุม : <input type="number" required v-model="blog.pnum" />
+            </p>
+            <p>เบอร์โทรศัพท์ : <input type="tel" required v-model="blog.tel" /></p>
+            <p>
+              วันที่เริ่มต้น :
+              <input type="date" required v-model="blog.dates" />เวลาที่เริ่มต้น:
+              <input type="time" required v-model="blog.times" />
+            </p>
+
+            <p>
+              วันที่สิ้นสุด :
+              <input type="date" required v-model="blog.datee" />เวลาที่สิ้นสุด :
+              <input type="time" required v-model="blog.timee" />
+            </p>
+
+            <p>อื่นๆ : <input type="text" required v-model="blog.other" /></p>
+<hr>
+
       <p>
-        
         <b-button pill variant="warning" type="submit"> แก้ไขการจอง</b-button>
         <b-button pill variant="secondary" v-on:click="navigateTo('/blogs')"
           >ย้อนกลับ</b-button

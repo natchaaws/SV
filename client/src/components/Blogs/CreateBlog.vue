@@ -8,16 +8,16 @@
           <h1>จองห้องประชุม</h1>
           <hr />
 
-          <form v-on:submit.prevent="createBlog">
-            <p>
+          <form class="box1" v-on:submit.prevent="createBlog">
+         <p>
               ชื่อ : <input type="text" v-model="blog.firstname" /> นามสกุล :
               <input type="text" v-model="blog.lastname" />
             </p>
 
             <p>
               ชื่อห้องประชุม :
-              <select v-model="blog.nroom">
-                <option> </option>
+              <select required v-model="blog.nroom">
+
                 <option>ลั่นทม</option>
                 <option>ลีลาวดี</option>
                 <option>กุหลาบ</option>
@@ -30,23 +30,24 @@
                 <option>พิกุล</option>
               </select>
 
-              จำนวนผู้เข้าประชุม : <input type="number" v-model="blog.pnum" />
+              จำนวนผู้เข้าประชุม : <input type="number" required v-model="blog.pnum" />
             </p>
-            <p>เบอร์โทรศัพท์ : <input type="tel" v-model="blog.tel" /></p>
+            <p>เบอร์โทรศัพท์ : <input type="tel" required v-model="blog.tel" /></p>
             <p>
               วันที่เริ่มต้น :
-              <input type="date" v-model="blog.dates" />เวลาที่เริ่มต้น:
-              <input type="time" v-model="blog.times" />
+              <input type="date" required v-model="blog.dates" />เวลาที่เริ่มต้น:
+              <input type="time" required v-model="blog.times" />
             </p>
-            
+
             <p>
               วันที่สิ้นสุด :
-              <input type="date" v-model="blog.datee" />เวลาที่สิ้นสุด :
-              <input type="time" v-model="blog.timee" />
+              <input type="date" required v-model="blog.datee" />เวลาที่สิ้นสุด :
+              <input type="time" required v-model="blog.timee" />
             </p>
-            
-            <p>อื่นๆ : <input type="text" v-model="blog.other" /></p>
 
+            <p>อื่นๆ : <input type="text" required v-model="blog.other" /></p>
+     
+<hr>
             <p>
               <b-button pill variant="success" type="submit"
                 >ยืนยันการจอง</b-button

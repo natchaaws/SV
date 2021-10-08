@@ -22,7 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
  /* text-align: center;*/
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 /* Fade transition*/
@@ -46,27 +46,126 @@ export default {
   .style{
     font-family: 'Itim', cursive;
   }
-
+/* user */
   .bg{
-    background:LavenderBlush;
+    background: linear-gradient(90deg,  #ffd7e1,#e4c6ff);
+    border-radius: 20px 20px 20px 20px;
+    width: 100%;
+    height: 100%;
 }
 
+/* Blogs */
  .bg1{
-    background: PapayaWhip
+    background: linear-gradient(40deg,  #c7ffee,#fff6e8);
+    border-radius: 20px 20px 20px 20px;
+    width: 100%;
+    height: 100%;
+    
 }
 
+/* Room */
 .bg2{
-    background: Azure;
+    background: linear-gradient(120deg,  #b9f2f5,#fbccff);
+    border-radius: 20px 20px 20px 20px;
+    width: 100%;
+    height: 100%;
 }
 
+/* Comment */
 .bg3{
-    background: rgb(228, 253, 241);
+    background: linear-gradient(120deg,  #E6E6FA,#ffdfea);
+    border-radius: 20px 20px 20px 20px;
+    width: 100%;
+    height: 100%;
 }
 
 .bg4{
-    background: #FFE4B5;
+    background: linear-gradient(0deg,#a9f1df,#ffcfcf);
+    border-radius: 20px 20px 20px 20px;
+    width: 100%;
+    height: 100%;
 }
 
+/*
+form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px;
+  background: white;
+  border-radius: 20px 20px 20px 20px;
+} */
+
+/* user */
+.box{
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px;
+  border-style: dashed;
+  border-color: #DCDCDC;
+  background: white;
+  border-radius: 30px 30px 30px 30px; /* ความมนของกรอบ*/
+  margin-bottom: 10px; /* ระยะห่างกรอบ */
+}
+/* user ข้างล่าง*/
+.box-1{
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px;
+  border-style: groove;
+  border-color: white; /* สีเส้นขอบ */
+  background: SteelBlue;
+  border-radius: 30px 30px 30px 30px; /* ความมนของกรอบ*/
+  margin-bottom: 10px; /* ระยะห่างกรอบ */
+  color: white; /* สีฟ้อน */
+}
+
+/* Blogs */
+.box1{
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px;
+  border-style: dashed;
+  border-color: #DCDCDC;
+  background: white;
+  border-radius: 30px 30px 30px 30px; /* ความมนของกรอบ*/
+  margin-bottom: 10px; /* ระยะห่างกรอบ */
+}
+
+
+/* Room */
+.box2{
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px;
+  border-style: dashed;
+  border-color: #DCDCDC;
+  background: white;
+  border-radius: 30px 30px 30px 30px; /* ความมนของกรอบ*/
+  margin-bottom: 10px; /* ระยะห่างกรอบ */
+}
+
+/* Comment*/
+.box3{
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px;
+  border-style: dashed;
+  border-color: #DCDCDC;
+  background: white;
+  border-radius: 30px 30px 30px 30px; /* ความมนของกรอบ*/
+  margin-bottom: 10px; /* ระยะห่างกรอบ */
+}
+
+t{
+   border-radius: 20px 20px 20px 20px;
+    margin: 30px;
+}
 
 
 </style>

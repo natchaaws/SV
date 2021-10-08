@@ -14,7 +14,7 @@
 <hr>
 
     <p><b-button pill variant="success" v-on:click="navigateTo('/comment/create')">เขียนรีวิว</b-button></p>
-    <div v-for="comment in comments" v-bind:key="comment.id">
+    <div  class="box3" v-for="comment in comments" v-bind:key="comment.id">
       <p>รีวิวที่: {{ comment.id }}</p>
       <p>หัวข้อ: {{ comment.title }}</p>
       <p>ชื่อภาพ: {{ comment.thumbnail }}</p>
@@ -26,12 +26,13 @@
       </transition>
    
       <p>เนื้อหา: {{ comment.content }}</p>
+      <hr>
       <p>
         <b-button pill variant="primary" v-on:click="navigateTo('comment/'+comment.id)">ดูรีวิว</b-button>
         <b-button pill variant="warning" v-on:click="navigateTo('/comment/edit/' +comment.id)">แก้ไขรีวิว</b-button>
         <b-button pill variant="danger" v-on:click="deleteComment(comment)"> ลบรีวิว</b-button>
       </p>
-      <hr>
+      
     </div>
 
     </b-col>

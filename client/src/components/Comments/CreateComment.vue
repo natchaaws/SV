@@ -8,7 +8,7 @@
           <h1>สร้างรีวิวของคุณ</h1>
           <hr />
 
-          <form v-on:submit.prevent="createComment">
+          <form class="box3" v-on:submit.prevent="createComment">
             <!-- thumbnail-->
             <p>หัวข้อ: <input type="text" v-model="comment.title" /></p>
 
@@ -74,7 +74,7 @@
                 @focus="onFocus($ecent)"
               />
             </p>
-
+<hr>
             <p>
             <b-button pill variant="success" type="submit">สร้างรีวิว</b-button>
             <b-button pill variant="secondary" v-on:click="navigateTo('/blogs')">ย้อนกลับ</b-button>

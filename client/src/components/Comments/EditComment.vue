@@ -9,7 +9,7 @@
 
     <h1>แก้ไขรีวิว {{ comment.id }}</h1>
     <hr>
-    <form v-on:submit.prevent="editComment">
+    <form class="box3" v-on:submit.prevent="editComment">
       <p>หัวข้อ: <input type="text" v-model="comment.title" /></p>
 
 <!-- add-->
@@ -73,7 +73,7 @@
           @focus="onFocus($ecent)"
         />
       </p>
-      
+      <hr>
       <p>
         <b-button  pill variant="warning"  type="submit">ยืนยันการแก้ไขรีวิว</b-button>
          <b-button pill variant="secondary" v-on:click="navigateTo('/comments')">ย้อนกลับ</b-button>

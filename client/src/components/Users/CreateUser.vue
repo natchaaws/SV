@@ -11,19 +11,19 @@
     <h1> สร้างผู้ใช้งาน </h1>
 <hr>
     
-    <form v-on:submit.prevent = "createUser">
+    <form class="box" v-on:submit.prevent = "createUser">
         <p>ชื่อ : <input type="text" v-model="user.name"></p>
         <p>นามสกุล : <input type="text" v-model="user.lastname"></p>
         <p>email : <input type="text" v-model="user.email"></p>
         <p>password : <input type="password" v-model="user.password"></p>
-
+<hr>
         <p><b-button pill variant="success" type="submit">สร้างผู้ใช้งาน</b-button>
          <b-button pill variant="danger" type="reset">ล้างข้อความ</b-button>
          <b-button pill variant="secondary" v-on:click="navigateTo('/users')">ย้อนกลับ</b-button>
    </p> 
    </form>
-    <hr>
-    <div>
+   
+    <div class="box-1">
         <p>ชื่อ : {{ user.name }} </p>
         <p>นามสกุล : {{ user.lastname }}</p>
         <p>email : {{ user.email }}</p>

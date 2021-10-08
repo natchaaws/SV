@@ -9,7 +9,7 @@
   <!--   <p><button v-on:click="logout">Logout</button></p> -->
     <h5>จำนวนห้องประชุม {{ rooms.length }} ห้อง</h5> <hr>
 
-    <div v-for="room in rooms" v-bind:key="room.id">
+    <div class="box2" v-for="room in rooms" v-bind:key="room.id">
       <p>ห้องที่: {{ room.id }}</p>
       <p>ชื่อห้องประชุม: {{ room.nameroom }}</p>
       <p>จำนวนผู้เข้าประชุม: {{ room.peopleroom }}</p>
