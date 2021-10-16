@@ -9,7 +9,7 @@
     <h1> แสดงผู้ใช้ {{ user.id }} </h1>
     <hr>
     <div class="box">
-       <!-- <p>id : {{ user.id }}</p> -->
+       <p>id : {{ user.id }}</p> 
         <p>ชื่อ-นามสกุล : {{ user.name }} - {{ user.lastname }}</p>
         <p>email : {{ user.email }}</p>
        <!-- <p>password : {{ user.password}}</p> -->

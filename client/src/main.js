@@ -14,6 +14,9 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+import 'bootstrap-css-only/css/bootstrap.min.css'
+import 'mdbvue/lib/css/mdb.min.css'
+
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
@@ -28,6 +31,7 @@ Vue.use(VueResource)
 sync(store, router)
 
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -36,3 +40,5 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+

@@ -9,43 +9,39 @@
           <hr />
 
           <form class="box1" v-on:submit.prevent="createBlog">
-         <p>
-              ชื่อ : <input type="text" v-model="blog.firstname" /> นามสกุล :
-              <input type="text" v-model="blog.lastname" />
-            </p>
+        <p> ชื่อ : <input type="text" class="form-control" v-model="blog.firstname" /> </p>
 
-            <p>
-              ชื่อห้องประชุม :
-              <select required v-model="blog.nroom">
+            <p> นามสกุล : <input type="text" class="form-control" v-model="blog.lastname" /> </p>
 
-                <option>ลั่นทม</option>
-                <option>ลีลาวดี</option>
-                <option>กุหลาบ</option>
-                <option>กล้วยไม้</option>
-                <option>อัญชัญ</option>
-                <option>จามจุรี</option>
-                <option>ชบา</option>
-                <option>ลำดวน</option>
-                <option>มะลิ</option>
-                <option>พิกุล</option>
+            <p> ชื่อห้องประชุม :
+              <select required class="form-control"  v-model="blog.nroom">
+                      <option>ลั่นทม</option>
+                      <option>ลีลาวดี</option>
+                      <option>กุหลาบ</option>
+                      <option>กล้วยไม้</option>
+                      <option>อัญชัญ</option>
+                      <option>จามจุรี</option>
+                      <option>ชบา</option>
+                      <option>ลำดวน</option>
+                      <option>มะลิ</option>
+                      <option>พิกุล</option>
               </select>
-
-              จำนวนผู้เข้าประชุม : <input type="number" required v-model="blog.pnum" />
-            </p>
-            <p>เบอร์โทรศัพท์ : <input type="tel" required v-model="blog.tel" /></p>
-            <p>
-              วันที่เริ่มต้น :
-              <input type="date" required v-model="blog.dates" />เวลาที่เริ่มต้น:
-              <input type="time" required v-model="blog.times" />
             </p>
 
-            <p>
-              วันที่สิ้นสุด :
-              <input type="date" required v-model="blog.datee" />เวลาที่สิ้นสุด :
-              <input type="time" required v-model="blog.timee" />
-            </p>
+            <p> จำนวนผู้เข้าประชุม : <input type="number" class="form-control" required v-model="blog.pnum" /></p>
 
-            <p>อื่นๆ : <input type="text" required v-model="blog.other" /></p>
+            <p> เบอร์โทรศัพท์ : <input type="tel" class="form-control" required v-model="blog.tel" /></p>
+
+            <p> วันที่เริ่มต้น : <input type="date" required class="form-control" v-model="blog.dates" /></p>
+
+            <p> เวลาที่เริ่มต้น: <input type="time" required class="form-control" v-model="blog.times" /></p>
+
+            <p> วันที่สิ้นสุด : <input type="date" required class="form-control" v-model="blog.datee" /></p>
+
+            <p> เวลาที่สิ้นสุด : <input type="time" required class="form-control" v-model="blog.timee" /></p>
+
+            <p> อื่นๆ : <input type="text" required class="form-control" v-model="blog.other" /></p>
+
      
 <hr>
             <p>
@@ -303,4 +299,9 @@ ul.pictures li img {
 .thumbnail-pic img {
   width: 200px;
 }
+
+input,select {
+      width: 450px;
+    }
+
 </style>

@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>
 
@@ -24,6 +24,11 @@ export default {
   color: #2c3e50;
   margin-top: 10px;
 }
+
+
+
+
+
 
 /* Fade transition*/
 .fade-enter, .fade-leave-to {
@@ -39,7 +44,7 @@ export default {
 }
 
 .thumbnail-pic img{
-      width: 150px;
+      width: 40%;
     }
 
 

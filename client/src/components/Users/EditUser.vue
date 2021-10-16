@@ -11,10 +11,10 @@
     <h1> แก้ไขผู้ใช้ {{ user.id }}</h1><hr>
     
     <form class="box" v-on:submit.prevent = "editUser">
-        <p>name : <input type="text" v-model="user.name"></p>
-        <p>lastname : <input type="text" v-model="user.lastname"></p>
-        <p>email : <input type="text" v-model="user.email"></p>
-        <p>password : <input type="text" v-model="user.password"></p>
+      <p>ชื่อ : <input type="text" class="form-control" v-model="user.name"></p>
+        <p>นามสกุล : <input type="text" class="form-control" v-model="user.lastname"></p>
+        <p>email : <input type="text" class="form-control" v-model="user.email"></p>
+        <p>password : <input type="password" class="form-control" v-model="user.password"></p>
         
         <P><b-button type="submit" pill variant="warning">แก้ไขผู้ใช้</b-button>
         <b-button pill variant="secondary" v-on:click="navigateTo('/users')">ย้อนกลับ</b-button>

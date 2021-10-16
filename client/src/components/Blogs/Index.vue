@@ -23,14 +23,14 @@
       <p>ชื่อห้องประชุม: {{ blog.nroom }}</p>
       <p>จำนวนผู้เข้าประชุม: {{ blog.pnum }}</p>
       <p>เบอร์โทรศัพท์: {{ blog.tel }}</p>
-      <p>วันที่เริ่มต้น: {{ blog.dates }}</p>
+     <!-- <p>วันที่เริ่มต้น: {{ blog.dates }}</p>
       <p>เวลาที่เริ่มต้น: {{ blog.times }}</p>
       <p>วันที่สิ้นสุด: {{ blog.datee }}</p>
       <p>เวลาที่สิ้นสุด: {{ blog.timee }}</p>
-      <p>อื่นๆ : {{ blog.other }}</p>
+      <p>อื่นๆ : {{ blog.other }}</p> -->
       <hr><p>
         <b-button pill variant="primary" v-on:click="navigateTo('blog/'+blog.id)"> ตรวจสอบการจอง </b-button>
-        <b-button pill variant="warning" v-on:click="navigateTo('/blog/edit/' + blog.id)"> แก้ไขการจอง </b-button>
+      <!--  <b-button pill variant="warning" v-on:click="navigateTo('/blog/edit/' + blog.id)"> แก้ไขการจอง </b-button> -->
         <b-button pill variant="danger" v-on:click="deleteBlog(blog)"> ยกเลิกการจอง</b-button>
       </p>
       

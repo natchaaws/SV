@@ -23,7 +23,7 @@
 
     <b-button class="loginbtn" type="submit" pill variant="success" >Login</b-button>
 
-    <p> <b-button class="registerbtn" pill variant="outline-warning" v-on:click="navigateTo('/user/create/')">สร้างผู้ใช้ </b-button></p>
+    <p> <b-button class="registerbtn" pill variant="warning" v-on:click="navigateTo('/user/create/')">สร้างผู้ใช้ </b-button></p>
 
     <div class="error" v-if="error">{{error}}</div>
   </div>
@@ -122,7 +122,7 @@ hr {
 }
 
 .loginbtn {
-  background-color: #04AA6D;
+  background-color: #15f8a5;
   color: white;
   padding: 14px 2px;
   margin: 6px 0;

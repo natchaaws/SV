@@ -8,9 +8,9 @@
           <h1>สร้างรีวิวของคุณ</h1>
           <hr />
 
-          <form class="box3" v-on:submit.prevent="createComment">
+         <form class="box3" v-on:submit.prevent="createComment">
             <!-- thumbnail-->
-            <p>หัวข้อ: <input type="text" v-model="comment.title" /></p>
+            <p>หัวข้อ: <input type="text" class="form-control" v-model="comment.title" /></p>
 
             <transition name="fade">
               <div class="thumbnail-pic" v-if="comment.thumbnail != 'null'">
@@ -36,8 +36,8 @@
                 />
                 <!-- <p v-if="isInitial || isSuccess"/> -->
                 <p v-if="isInitial">
-                  Drag your files(s) <br />
-                  here to begin or click to browse
+                  ลากไฟล์ของคุณมาที่นี่ <br />
+                  หรือคลิกเพื่อเรียกดู
                 </p>
                 <p v-if="isSaving">Uploading {{ fileCount }} files...</p>
                 <p v-if="isSuccess">อัพโหลดรูปเรียบร้อยแล้ว!</p>
@@ -77,7 +77,7 @@
 <hr>
             <p>
             <b-button pill variant="success" type="submit">สร้างรีวิว</b-button>
-            <b-button pill variant="secondary" v-on:click="navigateTo('/blogs')">ย้อนกลับ</b-button>
+            <b-button pill variant="secondary" v-on:click="navigateTo('/comments')">ย้อนกลับ</b-button>
             </p>
 
           </form>
@@ -434,5 +434,9 @@ ul.pictures li img {
 /* thumbnail */
 .thumbnail-pic img {
   width: 200px;
+}
+
+input {
+      width: 450px;
 }
 </style>

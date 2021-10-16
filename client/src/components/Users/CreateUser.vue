@@ -12,10 +12,10 @@
 <hr>
     
     <form class="box" v-on:submit.prevent = "createUser">
-        <p>ชื่อ : <input type="text" v-model="user.name"></p>
-        <p>นามสกุล : <input type="text" v-model="user.lastname"></p>
-        <p>email : <input type="text" v-model="user.email"></p>
-        <p>password : <input type="password" v-model="user.password"></p>
+       <p>ชื่อ : <input type="text" class="form-control" v-model="user.name"></p>
+        <p>นามสกุล : <input type="text" class="form-control" v-model="user.lastname"></p>
+        <p>email : <input type="text" class="form-control" v-model="user.email"></p>
+        <p>password : <input type="password" class="form-control" v-model="user.password"></p>
 <hr>
         <p><b-button pill variant="success" type="submit">สร้างผู้ใช้งาน</b-button>
          <b-button pill variant="danger" type="reset">ล้างข้อความ</b-button>
@@ -27,7 +27,7 @@
         <p>ชื่อ : {{ user.name }} </p>
         <p>นามสกุล : {{ user.lastname }}</p>
         <p>email : {{ user.email }}</p>
-        <p>password : {{ user.password}}</p>
+        <p>password : {{ user.password}}</p> 
     </div>
 
 </b-col>

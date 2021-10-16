@@ -9,8 +9,8 @@
 
     <h1>แก้ไขรีวิว {{ comment.id }}</h1>
     <hr>
-    <form class="box3" v-on:submit.prevent="editComment">
-      <p>หัวข้อ: <input type="text" v-model="comment.title" /></p>
+ <form class="box3" v-on:submit.prevent="editComment">
+      <p>หัวข้อ: <input type="text" class="form-control" v-model="comment.title" /></p>
 
 <!-- add-->
 
@@ -36,8 +36,8 @@
           />
           <!-- <p v-if="isInitial || isSuccess"/> -->
           <p v-if="isInitial">
-            Drag your files(s) <br />
-            here to begin or click to browse
+             ลากไฟล์ของคุณมาที่นี่ <br />
+                  หรือคลิกเพื่อเรียกดู
           </p>
           <p v-if="isSaving">Uploading {{ fileCount }} files...</p>
           <p v-if="isSuccess">อัพโหลดรูปเรียบร้อยแล้ว!.</p>
@@ -439,5 +439,9 @@ export default {
     .thumbnail-pic img{
       width: 200px;
     }
+
+    input {
+      width: 450px;
+}
 
 </style>

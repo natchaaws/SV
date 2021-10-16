@@ -7,7 +7,8 @@
             <a><router-link :to="{name: 'comments'}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> รีวิวห้องประชุม</router-link></a>
             <a><router-link :to="{name: 'users'}"><i class="fa fa-address-card-o" aria-hidden="true"></i> ผู้ใช้งาน</router-link></a>
             <a><router-link :to="{name: 'login'}"><i class="fa fa-user-o" aria-hidden="true"></i> Login</router-link></a>
-            <a><a v-on:cick.prevent="logout" href="login"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a></a>
+        <!--<a><a v-on:cick.prevent="logout" href="login"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a></a>-->
+            <a><a v-on:click.prevent="logout" ><i class="fa fa-sign-in" aria-hidden="true"></i> Logout </a></a>
         
         </div>
     </div>
@@ -17,13 +18,14 @@
 <script>
 export default {
   methods: {
-    logout() {
-      this.$store.dispatch("setTkoen", null);
-      this.$store.dispatch("setComment", null);
+  logout() {
+      this.$store.dispatch("setToken", null);
+      this.$store.dispatch("setUser", null);
+
       this.$router.push({
-        name: "login"
-      })
-    }
+        name: "login",
+      });
+    },
   }
 }
 </script>
