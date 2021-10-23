@@ -57,7 +57,7 @@
                       ลบรูปภาพ
                     </button>
                     <button v-on:click.prevent="useThumbnail(picture.name)">
-                      แสดงภาพขนาดเล็ก
+                      เลือกรูปภาพ
                     </button>
                   </li>
                 </ul>
@@ -128,9 +128,6 @@ export default {
         status: ""
       },
       config: {
-        /* toolbar: [
-          ["Bold", "Italic", "Underline", "Strike", "Subscript", "SuperScript"],
-        ], */
         height: 300
       }
     };

@@ -20,11 +20,11 @@
       <!--   <p>password : {{ user.password}}</p> -->
         <hr>
         <p><b-button pill variant="primary" v-on:click="navigateTo('/user/'+ user.id)">ดูข้อมูลผู้ใช้</b-button>
-    <!--    
+       
          <b-button pill variant="warning" v-on:click="navigateTo('/user/edit/'+ user.id)">แก้ไขข้อมูล</b-button> 
         <b-button pill variant="danger" v-on:click="deleteUser(user)">ลบข้อมูล</b-button> 
         
-    -->
+    
         </p>
         
     </div>

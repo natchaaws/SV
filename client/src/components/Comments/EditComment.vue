@@ -20,47 +20,50 @@
         </div>
       </transition>
 
- <form enctype="multipart/form-data" novalidate>
-        <div class="dropbox">
-          <input
-            type="file"
-            multiple
-            :name="uploadFieldName"
-            :disabled="isSaving"
-            @change="
-              filesChange($event.target.name, $event.target.files);
-              fileCount = $event.target.files.length;
-            "
-            accept="image/*"
-            class="input-file"
-          />
-          <!-- <p v-if="isInitial || isSuccess"/> -->
-          <p v-if="isInitial">
-             ลากไฟล์ของคุณมาที่นี่ <br />
+  <form enctype="multipart/form-data" novalidate>
+              <div class="dropbox">
+                <input
+                  type="file"
+                  multiple
+                  :name="uploadFieldName"
+                  :disabled="isSaving"
+                  @change="
+                    filesChange($event.target.name, $event.target.files);
+                    fileCount = $event.target.files.length;
+                  "
+                  accept="image/*"
+                  class="input-file"
+                />
+                <!-- <p v-if="isInitial || isSuccess"/> -->
+                <p v-if="isInitial">
+                  ลากไฟล์ของคุณมาที่นี่ <br />
                   หรือคลิกเพื่อเรียกดู
-          </p>
-          <p v-if="isSaving">Uploading {{ fileCount }} files...</p>
-          <p v-if="isSuccess">อัพโหลดรูปเรียบร้อยแล้ว!.</p>
-          <p v-if="isFailed">อัพโหลดรูปไม่สำเร็จ</p>
-        </div>
+                </p>
+                <p v-if="isSaving">Uploading {{ fileCount }} files...</p>
+                <p v-if="isSuccess">อัพโหลดรูปเรียบร้อยแล้ว!</p>
+                <p v-if="isFailed">อัพโหลดรูปไม่สำเร็จ</p>
+              </div>
 
-        <div>
-          <ul class="pictures">
-            <li v-for="picture in pictures" v-bind:key="picture.id">
-              <img
-                style="margin-bottom: 5px"
-                :src="BASE_URL + picture.name"
-                alt="picture image"
-              />
-              <hr>
-              <button v-on:click.prevent="useThumbnail(picture.name)">แสดงภาพขนาดเล็ก</button>
-              <button v-on:click.prevent="delFile(picture)"> ลบรูปภาพ </button>
-              
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-      </form>
+              <div>
+                <ul class="pictures">
+                  <li v-for="picture in pictures" v-bind:key="picture.id">
+                    <img
+                      style="margin-bottom: 5px"
+                      :src="BASE_URL + picture.name"
+                      alt="picture image"
+                    />
+                    <br />
+                    <button v-on:click.prevent="delFile(picture)">
+                      ลบรูปภาพ
+                    </button>
+                    <button v-on:click.prevent="useThumbnail(picture.name)">
+                      เลือกรูปภาพ
+                    </button>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+            </form>
 
 
 
@@ -119,15 +122,12 @@ export default {
       comment: {
         title: "",
         thumbnail: "null",
-        pictues: "null", //ระวังตรงนี้คำผิด
+        pictues: "null", 
         content: "",
         category: "",
         status: "",
       },
       config: {
-      //  toolbar: [
-      //    ["Bold", "Italic", "Underline", "Strike", "Subscript", "SuperScript"],
-      //  ],
         height: 300,
       },
     };

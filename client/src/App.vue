@@ -61,7 +61,7 @@ export default {
 
 /* Blogs */
  .bg1{
-    background: linear-gradient(40deg,  #c7ffee,#fff6e8);
+    background: #e0edff;
     border-radius: 20px 20px 20px 20px;
     width: 100%;
     height: 100%;
