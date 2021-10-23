@@ -2,7 +2,7 @@
   "name": "nv-wabblog-client",
   "version": "1.0.0",
   "description": "nodejs vuejs webblog client",
-  "author": "natcha awasri",
+  "author": "natcha awasri,Pacharapol Kakkhunthod",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
